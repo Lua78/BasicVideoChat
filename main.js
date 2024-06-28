@@ -6,6 +6,7 @@ const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
 
 let localTracks = []
 let remoteUsers = {}
+let UID = ''
 
 let joinAndDisplayLocalStream = async () => {
 
@@ -14,9 +15,9 @@ let joinAndDisplayLocalStream = async () => {
     
         client.on('user-left', handleUserLeft)
         let UID = await client.join(APP_ID, CHANNEL, TOKEN, null)
-        AgoraRTC.createMicrophoneAudioTrack(),
-        AgoraRTC.createCameraVideoTrack()
-    
+        localTracks[0] = await AgoraRTC.createMicrophoneAudioTrack()
+        localTracks[1] = await AgoraRTC.createCameraVideoTrack()
+        
         let player = `<div class="video-container" id="user-container-${UID}">
                             <div class="video-player" id="user-${UID}"></div>
                       </div>`
@@ -90,6 +91,7 @@ let toggleMic = async (e) => {
 }
 
 let toggleCamera = async (e) => {
+    console.log(localTracks)
     if(localTracks[1].muted){
         await localTracks[1].setMuted(false)
         e.target.innerText = 'Camera on'
