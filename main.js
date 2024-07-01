@@ -1,5 +1,5 @@
 const APP_ID = "c2494836b73e4cf89036741de30f8b93"
-const TOKEN = "007eJxTYNgSmrbf7Nbac0oFj9cs5ap4YXxyWu/79hOONzb7uL6uEd2qwJBsZGJpYmFslmRunGqSnGZhaWBsZm5imJJqbJBmkWRpXOdYl9YQyMigMnkDCyMDBIL4LAy5iZl5DAwA3p0gtw=="
+const TOKEN = "007eJxTYJju2deZqBQdXd33YDbrX9enHS+36mys+ZBy3feb3B0xLy4FhmQjE0sTC2OzJHPjVJPkNAtLA2MzcxPDlFRjgzSLJEvjJKGmtIZARobbrKqsjAwQCOKzMOQmZuYxMAAARtwebA=="
 const CHANNEL = "main"
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
@@ -82,7 +82,7 @@ let toggleMic = async (e) => {
     if (localTracks[0].muted){
         await localTracks[0].setMuted(false)
         e.target.innerText = 'Mic on'
-        e.target.style.backgroundColor = 'cadetblue'
+        e.target.style.backgroundColor = '#318118'
     }else{
         await localTracks[0].setMuted(true)
         e.target.innerText = 'Mic off'
@@ -95,7 +95,7 @@ let toggleCamera = async (e) => {
     if(localTracks[1].muted){
         await localTracks[1].setMuted(false)
         e.target.innerText = 'Camera on'
-        e.target.style.backgroundColor = 'cadetblue'
+        e.target.style.backgroundColor = '#318118'
     }else{
         await localTracks[1].setMuted(true)
         e.target.innerText = 'Camera off'
